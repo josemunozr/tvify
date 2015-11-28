@@ -4,7 +4,7 @@ const app = express()
 import api from 'src/server/api'
 
 import mongoose from 'mongoose'
-mongoose.connect('mongodb://localhost/tvify')
+mongoose.connect(process.env.MONGOLAB_URL || 'mongodb://localhost/tvify')
 
 app.use(express.static('public'))
 
