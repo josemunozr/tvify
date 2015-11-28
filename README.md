@@ -3,7 +3,7 @@ TVify
 
 [Demo](http://slifszyc.github.io/tvify/)
 
-Esta fue la aplicación que realizamos en el curso de [Javascript y jQuery](https://platzi.com/jquery) de [Platzi](https://platzi.com)
+Esta fue la aplicación que realizamos en los cursos de [Javascript y jQuery](https://platzi.com/jquery) y [Node.js](https://platzi.com/nodejs) de [Platzi](https://platzi.com).
 
 ## Instalación
 
@@ -14,3 +14,5 @@ npm install   // instala dependencias
 npm run build // genera el app.js y copia el css y el index.html
 npm run serve // levanta el servidor
 ```
+
+También puede ejecutarse `npm start` que ejecuta los comandos `npm run build` y `npm run serve`.
