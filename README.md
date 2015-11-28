@@ -1,7 +1,8 @@
 TVify
 =====
 
-[Demo](http://slifszyc.github.io/tvify/)
+[Demo de la app sólo frontend](http://slifszyc.github.io/tvify/).
+[Demo de la app con Express](http://tvify.herokuapp.com).
 
 Esta fue la aplicación que realizamos en los cursos de [Javascript y jQuery](https://platzi.com/jquery) y [Node.js](https://platzi.com/nodejs) de [Platzi](https://platzi.com).
 
