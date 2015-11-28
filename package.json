@@ -13,7 +13,7 @@
     "qs": "^6.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.2.0",
+    "babel-cli": "^6.2.0"
   },
   "scripts": {
     "public": "mkdir -p public",
