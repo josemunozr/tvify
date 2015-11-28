@@ -32,6 +32,6 @@ app.use('/api/votes', function (req, res, next) {
 
 app.use('/api', _api2.default);
 
-app.listen(3000, function () {
-  return console.log('Servidor iniciado con Express en puerto 3000');
+app.listen(process.env.PORT || 3000, function () {
+  return console.log('Servidor iniciado con Express');
 });
