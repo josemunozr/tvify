@@ -4,15 +4,15 @@
 
 import $ from 'jquery'
 
-export function getShows(fn) {
+export function getShows (fn) {
   $.ajax('/api/shows', {
     success: function (shows, textStatus, xhr) {
-     fn(shows)
+      fn(shows)
     }
   })
 }
 
-export function searchShows(busqueda, fn) {
+export function searchShows (busqueda, fn) {
   $.ajax('http://api.tvmaze.com/search/shows', {
     data: busqueda,
     success: function (res, textStatus, xhr) {

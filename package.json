@@ -10,7 +10,8 @@
     "jquery": "^2.1.4",
     "mongoose": "^4.2.8",
     "page": "^1.6.4",
-    "qs": "^6.0.0"
+    "qs": "^6.0.0",
+    "tv-maze": "^1.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.2.0",
@@ -18,12 +19,12 @@
   },
   "scripts": {
     "public": "mkdir -p public",
-    "lint" : "standard",
+    "lint": "standard",
     "build-js": "NODE_PATH=. browserify -t [ babelify --presets [ es2015 ] ] src/client/index.js > public/app.js",
     "copy-files": "cp src/client/index.css public/app.css && cp src/client/index.html public/index.html",
     "build": "npm run public && npm run build-js && npm run copy-files",
-    "dist": "babel src/server/index.js src/server/**/*.js --out-dir bin --presets es2015",
-    "serve": "NODE_PATH=. babel-node src/server --presets es2015",
+    "dist": "babel src/server/index.js src/server/**/*.js --out-dir dist --presets es2015",
+    "serve": "NODE_PATH=./dist node dist/src/server",
     "start": "npm run lint && npm run dist && npm run build && npm run serve"
   }
 }

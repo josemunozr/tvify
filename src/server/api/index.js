@@ -40,7 +40,7 @@ router.post('/vote/:id', (req, res) => {
 
   let id = req.params.id
 
-  Vote.findOne({ showId: id }, (err, doc) => {
+  Vote.findOne({ showId: id }, (doc) => {
     if (doc) {
       // actualizo este doc
       doc.count = doc.count + 1
