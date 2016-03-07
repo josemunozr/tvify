@@ -25,6 +25,6 @@
     "build": "npm run public && npm run build-js && npm run copy-files",
     "dist": "babel src/server/index.js src/server/**/*.js --out-dir dist --presets es2015",
     "serve": "NODE_PATH=./dist node dist/src/server",
-    "start": "npm run lint && npm run dist && npm run build && npm run serve"
+    "start": "rm -Rf dist && npm run lint && npm run dist && npm run build && npm run serve"
   }
 }

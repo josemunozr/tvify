@@ -21,19 +21,54 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var router = _express2.default.Router();
 var client = _tvMaze2.default.createClient();
 
+function addVotes(shows, callback) {
+  _models2.default.find({}, function (err, votes) {
+    if (err) votes = [];
+
+    shows = shows.map(function (show) {
+      var vote = votes.filter(function (vote) {
+        return vote.showId === show.id;
+      })[0];
+      show.count = vote ? vote.count : 0;
+      return show;
+    });
+
+    callback(shows);
+  });
+}
+
 router.get('/shows', function (req, res) {
   client.shows(function (err, shows) {
     if (err) {
       return res.sendStatus(500).json(err);
     }
 
-    res.json(shows);
+    addVotes(shows, function (shows) {
+      res.json(shows);
+    });
+  });
+});
+
+router.get('/search', function (req, res) {
+  var query = req.query.q;
+
+  client.search(query, function (err, shows) {
+    if (err) {
+      return res.sendStatus(500).json(err);
+    }
+
+    shows = shows.map(function (show) {
+      return show.show;
+    });
+
+    addVotes(shows, function (shows) {
+      res.json(shows);
+    });
   });
 });
 
 // GET  /api/votes
 router.get('/votes', function (req, res) {
-  console.log('GET /votes');
   _models2.default.find({}, function (err, docs) {
     if (err) {
       return res.sendStatus(500).json(err);
@@ -52,7 +87,7 @@ router.post('/vote/:id', function (req, res) {
       res.json(vote);
     };
   };
-
+  debugger;
   var id = req.params.id;
 
   _models2.default.findOne({ showId: id }, function (doc) {
